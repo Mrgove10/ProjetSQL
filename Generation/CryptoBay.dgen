@@ -51,7 +51,7 @@
             <SeedValue>7</SeedValue>
             <Unique>true</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
-            <Expression>\d{5}</Expression>
+            <Expression>[0-9A-Z]{5}</Expression>
           </GeneratorOptions>
           <GeneratorType>SqlRegularExpressionGenerator</GeneratorType>
           <GeneratorName>ID (random)</GeneratorName>
@@ -71,7 +71,7 @@
             <SeedValue>7</SeedValue>
             <Unique>false</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
-            <Expression>(Credit Card|Direct Debit|PayPal|Check|WebMoney|Bank Transfer)</Expression>
+            <Expression>(Bitcoin|Ethereum|Bitcoin Cash|Ripple|Litecoin|IOTA|OmiseGo|MaidSafeCoin|Dash|Dogecoin|Monero|Factom|BitShares|Peercoin|Namecoin|Lisk|SolarCoin|DeepOnion)</Expression>
           </GeneratorOptions>
           <GeneratorType>SqlRegularExpressionGenerator</GeneratorType>
           <GeneratorName>Payment Method</GeneratorName>
@@ -84,13 +84,13 @@
           <DataType>varchar</DataType>
           <GeneratorOptions xsi:type="SqlLoremIpsumGeneratorOptions">
             <AllowEmptyStrings>false</AllowEmptyStrings>
-            <EmptyStringProportion>10</EmptyStringProportion>
-            <AllowNulls>true</AllowNulls>
+            <EmptyStringProportion>0</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
             <NullProportion>8</NullProportion>
             <ValueDistributionMode>Seed</ValueDistributionMode>
             <SeedValue>7</SeedValue>
             <MinLength>1</MinLength>
-            <MaxLength>999</MaxLength>
+            <MaxLength>255</MaxLength>
             <MaxAllowedLength>2048</MaxAllowedLength>
             <MinWordsInSentence>3</MinWordsInSentence>
             <MaxWordsInSentence>12</MaxWordsInSentence>
@@ -1993,7 +1993,7 @@
       </Columns>
     </Table>
     <Table Name="dbo.Objects">
-      <Checked>false</Checked>
+      <Checked>true</Checked>
       <Settings>
         <Truncate>true</Truncate>
         <RowsToGenerate>0</RowsToGenerate>
@@ -2007,7 +2007,7 @@
       </Settings>
       <Columns>
         <Column Name="id">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>varchar</DataType>
           <GeneratorOptions xsi:type="SqlRegularExpressionGeneratorOptions">
             <AllowEmptyStrings>false</AllowEmptyStrings>
@@ -2018,7 +2018,8 @@
             <SeedValue>3</SeedValue>
             <Unique>true</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
-            <Expression>\d{5}</Expression>
+            <Expression>[0-9A-Z]{5}
+</Expression>
           </GeneratorOptions>
           <GeneratorType>SqlRegularExpressionGenerator</GeneratorType>
           <GeneratorName>ID (random)</GeneratorName>
@@ -2027,36 +2028,45 @@
           <Length>20</Length>
         </Column>
         <Column Name="nom">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>varchar</DataType>
-          <GeneratorOptions xsi:type="SqlRegularExpressionGeneratorOptions">
+          <GeneratorOptions xsi:type="VarcharGeneratorOptions">
             <AllowEmptyStrings>false</AllowEmptyStrings>
             <EmptyStringProportion>10</EmptyStringProportion>
-            <AllowNulls>true</AllowNulls>
+            <Collation CompareOptions="25" CultureLcid="1033" />
+            <AllowNulls>false</AllowNulls>
             <NullProportion>8</NullProportion>
-            <ValueDistributionMode>Seed</ValueDistributionMode>
-            <SeedValue>3</SeedValue>
             <Unique>false</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
-            <Expression>[0-9A-Z]+</Expression>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>3</SeedValue>
+            <MinStringAllowedLenght>1</MinStringAllowedLenght>
+            <MaxStringAllowedLenght>256</MaxStringAllowedLenght>
+            <MinStringLenght>5</MinStringLenght>
+            <MaxStringLenght>15</MaxStringLenght>
+            <StartChar>97</StartChar>
+            <EndChar>122</EndChar>
+            <CodePage>20127</CodePage>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
           </GeneratorOptions>
-          <GeneratorType>SqlStringRegularExpressionGenerator</GeneratorType>
-          <GeneratorName>Reg Exp</GeneratorName>
-          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <GeneratorType>SqlVarcharGenerator</GeneratorType>
+          <GeneratorName>string</GeneratorName>
+          <GeneratorDescription>fill with character string values</GeneratorDescription>
           <Length>256</Length>
         </Column>
         <Column Name="description">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>varchar</DataType>
           <GeneratorOptions xsi:type="SqlLoremIpsumGeneratorOptions">
             <AllowEmptyStrings>false</AllowEmptyStrings>
-            <EmptyStringProportion>10</EmptyStringProportion>
-            <AllowNulls>true</AllowNulls>
+            <EmptyStringProportion>0</EmptyStringProportion>
+            <AllowNulls>false</AllowNulls>
             <NullProportion>8</NullProportion>
             <ValueDistributionMode>Seed</ValueDistributionMode>
             <SeedValue>3</SeedValue>
             <MinLength>1</MinLength>
-            <MaxLength>999</MaxLength>
+            <MaxLength>255</MaxLength>
             <MaxAllowedLength>2048</MaxAllowedLength>
             <MinWordsInSentence>3</MinWordsInSentence>
             <MaxWordsInSentence>12</MaxWordsInSentence>
@@ -2081,18 +2091,18 @@
           <Length>2048</Length>
         </Column>
         <Column Name="prix">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>int</DataType>
           <GeneratorOptions xsi:type="IntegerGeneratorOptions">
-            <AllowNulls>true</AllowNulls>
+            <AllowNulls>false</AllowNulls>
             <NullProportion>8</NullProportion>
             <Unique>false</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
             <Increment xsi:type="xsd:int">1</Increment>
             <ValueDistributionMode>Seed</ValueDistributionMode>
             <SeedValue>3</SeedValue>
-            <MinValue>-2147483648</MinValue>
-            <MaxValue>2147483647</MaxValue>
+            <MinValue>1</MinValue>
+            <MaxValue>500000</MaxValue>
             <UseDefault>false</UseDefault>
             <DefaultValue />
           </GeneratorOptions>
@@ -2103,12 +2113,12 @@
           <Precision>10</Precision>
         </Column>
         <Column Name="creator">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>varchar</DataType>
           <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
             <Unique>false</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
-            <AllowNulls>true</AllowNulls>
+            <AllowNulls>false</AllowNulls>
             <NullProportion>8</NullProportion>
             <ValueDistributionMode>Seed</ValueDistributionMode>
             <SeedValue>3</SeedValue>
@@ -2125,12 +2135,12 @@
           <Length>20</Length>
         </Column>
         <Column Name="payementType">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>varchar</DataType>
           <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
             <Unique>false</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
-            <AllowNulls>true</AllowNulls>
+            <AllowNulls>false</AllowNulls>
             <NullProportion>8</NullProportion>
             <ValueDistributionMode>Seed</ValueDistributionMode>
             <SeedValue>4</SeedValue>
@@ -2149,7 +2159,7 @@
       </Columns>
     </Table>
     <Table Name="dbo.payement">
-      <Checked>false</Checked>
+      <Checked>true</Checked>
       <Settings>
         <Truncate>true</Truncate>
         <RowsToGenerate>0</RowsToGenerate>
@@ -2163,7 +2173,7 @@
       </Settings>
       <Columns>
         <Column Name="id">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>varchar</DataType>
           <GeneratorOptions xsi:type="SqlRegularExpressionGeneratorOptions">
             <AllowEmptyStrings>false</AllowEmptyStrings>
@@ -2174,7 +2184,7 @@
             <SeedValue>5</SeedValue>
             <Unique>true</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
-            <Expression>\d{5}</Expression>
+            <Expression>[0-9A-Z]{5}</Expression>
           </GeneratorOptions>
           <GeneratorType>SqlRegularExpressionGenerator</GeneratorType>
           <GeneratorName>ID (random)</GeneratorName>
@@ -2183,12 +2193,12 @@
           <Length>20</Length>
         </Column>
         <Column Name="type">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>varchar</DataType>
           <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
             <Unique>false</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
-            <AllowNulls>true</AllowNulls>
+            <AllowNulls>false</AllowNulls>
             <NullProportion>8</NullProportion>
             <ValueDistributionMode>Seed</ValueDistributionMode>
             <SeedValue>5</SeedValue>
@@ -2205,18 +2215,18 @@
           <Length>20</Length>
         </Column>
         <Column Name="numberUse">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>int</DataType>
           <GeneratorOptions xsi:type="IntegerGeneratorOptions">
-            <AllowNulls>true</AllowNulls>
+            <AllowNulls>false</AllowNulls>
             <NullProportion>8</NullProportion>
             <Unique>false</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
             <Increment xsi:type="xsd:int">1</Increment>
             <ValueDistributionMode>Seed</ValueDistributionMode>
             <SeedValue>5</SeedValue>
-            <MinValue>-2147483648</MinValue>
-            <MaxValue>2147483647</MaxValue>
+            <MinValue>0</MinValue>
+            <MaxValue>10000</MaxValue>
             <UseDefault>false</UseDefault>
             <DefaultValue />
           </GeneratorOptions>
@@ -2227,12 +2237,12 @@
           <Precision>10</Precision>
         </Column>
         <Column Name="user">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>varchar</DataType>
           <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
             <Unique>false</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
-            <AllowNulls>true</AllowNulls>
+            <AllowNulls>false</AllowNulls>
             <NullProportion>8</NullProportion>
             <ValueDistributionMode>Seed</ValueDistributionMode>
             <SeedValue>6</SeedValue>
@@ -2377,7 +2387,7 @@
       </Columns>
     </Table>
     <Table Name="dbo.User_adresse">
-      <Checked>false</Checked>
+      <Checked>true</Checked>
       <Settings>
         <Truncate>true</Truncate>
         <RowsToGenerate>0</RowsToGenerate>
@@ -2391,7 +2401,7 @@
       </Settings>
       <Columns>
         <Column Name="id">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>varchar</DataType>
           <GeneratorOptions xsi:type="SqlRegularExpressionGeneratorOptions">
             <AllowEmptyStrings>false</AllowEmptyStrings>
@@ -2402,7 +2412,8 @@
             <SeedValue>22</SeedValue>
             <Unique>true</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
-            <Expression>\d{5}</Expression>
+            <Expression>[0-9A-Z]{5}
+</Expression>
           </GeneratorOptions>
           <GeneratorType>SqlRegularExpressionGenerator</GeneratorType>
           <GeneratorName>ID (random)</GeneratorName>
@@ -2411,37 +2422,46 @@
           <Length>20</Length>
         </Column>
         <Column Name="rue">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>varchar</DataType>
-          <GeneratorOptions xsi:type="SqlRegularExpressionGeneratorOptions">
+          <GeneratorOptions xsi:type="VarcharGeneratorOptions">
             <AllowEmptyStrings>false</AllowEmptyStrings>
             <EmptyStringProportion>10</EmptyStringProportion>
-            <AllowNulls>true</AllowNulls>
+            <Collation CompareOptions="25" CultureLcid="1033" />
+            <AllowNulls>false</AllowNulls>
             <NullProportion>8</NullProportion>
-            <ValueDistributionMode>Seed</ValueDistributionMode>
-            <SeedValue>22</SeedValue>
             <Unique>false</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
-            <Expression>[0-9A-Z]+</Expression>
+            <ValueDistributionMode>Seed</ValueDistributionMode>
+            <SeedValue>22</SeedValue>
+            <MinStringAllowedLenght>1</MinStringAllowedLenght>
+            <MaxStringAllowedLenght>256</MaxStringAllowedLenght>
+            <MinStringLenght>5</MinStringLenght>
+            <MaxStringLenght>15</MaxStringLenght>
+            <StartChar>97</StartChar>
+            <EndChar>122</EndChar>
+            <CodePage>20127</CodePage>
+            <UseDefault>false</UseDefault>
+            <DefaultValue />
           </GeneratorOptions>
-          <GeneratorType>SqlStringRegularExpressionGenerator</GeneratorType>
-          <GeneratorName>Reg Exp</GeneratorName>
-          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <GeneratorType>SqlVarcharGenerator</GeneratorType>
+          <GeneratorName>string</GeneratorName>
+          <GeneratorDescription>fill with character string values</GeneratorDescription>
           <Length>256</Length>
         </Column>
         <Column Name="numRue">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>int</DataType>
           <GeneratorOptions xsi:type="IntegerGeneratorOptions">
-            <AllowNulls>true</AllowNulls>
+            <AllowNulls>false</AllowNulls>
             <NullProportion>8</NullProportion>
             <Unique>false</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
             <Increment xsi:type="xsd:int">1</Increment>
             <ValueDistributionMode>Seed</ValueDistributionMode>
             <SeedValue>22</SeedValue>
-            <MinValue>-2147483648</MinValue>
-            <MaxValue>2147483647</MaxValue>
+            <MinValue>0</MinValue>
+            <MaxValue>1000</MaxValue>
             <UseDefault>false</UseDefault>
             <DefaultValue />
           </GeneratorOptions>
@@ -2452,45 +2472,47 @@
           <Precision>10</Precision>
         </Column>
         <Column Name="codePostal">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>varchar</DataType>
           <GeneratorOptions xsi:type="SqlRegularExpressionGeneratorOptions">
             <AllowEmptyStrings>false</AllowEmptyStrings>
             <EmptyStringProportion>10</EmptyStringProportion>
-            <AllowNulls>true</AllowNulls>
+            <AllowNulls>false</AllowNulls>
             <NullProportion>8</NullProportion>
             <ValueDistributionMode>Seed</ValueDistributionMode>
             <SeedValue>23</SeedValue>
             <Unique>false</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
-            <Expression>[0-9A-Z]+</Expression>
+            <Expression>\d{5}</Expression>
           </GeneratorOptions>
-          <GeneratorType>SqlStringRegularExpressionGenerator</GeneratorType>
-          <GeneratorName>Reg Exp</GeneratorName>
-          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <GeneratorType>SqlRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>US Post Code (ZIP)</GeneratorName>
+          <GeneratorDescription>48470, 90189, 10265, 55078, 22067, ...</GeneratorDescription>
+          <GeneratorCategory>Location</GeneratorCategory>
           <Length>20</Length>
         </Column>
         <Column Name="ville">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>varchar</DataType>
           <GeneratorOptions xsi:type="SqlRegularExpressionGeneratorOptions">
             <AllowEmptyStrings>false</AllowEmptyStrings>
             <EmptyStringProportion>10</EmptyStringProportion>
-            <AllowNulls>true</AllowNulls>
+            <AllowNulls>false</AllowNulls>
             <NullProportion>8</NullProportion>
             <ValueDistributionMode>Seed</ValueDistributionMode>
             <SeedValue>24</SeedValue>
             <Unique>false</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
-            <Expression>[0-9A-Z]+</Expression>
+            <Expression>($"USCityPopulation.csv[0]")</Expression>
           </GeneratorOptions>
-          <GeneratorType>SqlStringRegularExpressionGenerator</GeneratorType>
-          <GeneratorName>Reg Exp</GeneratorName>
-          <GeneratorDescription>values based on a regular expression</GeneratorDescription>
+          <GeneratorType>SqlRegularExpressionGenerator</GeneratorType>
+          <GeneratorName>US City</GeneratorName>
+          <GeneratorDescription>Washington, Las Vegas, Malibu, New York, Detroit, Los Angeles, Redmond, ...</GeneratorDescription>
+          <GeneratorCategory>Location</GeneratorCategory>
           <Length>256</Length>
         </Column>
         <Column Name="user">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>varchar</DataType>
           <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
             <Unique>false</Unique>
@@ -2539,7 +2561,8 @@
             <SeedValue>28</SeedValue>
             <Unique>true</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
-            <Expression>\d{5}</Expression>
+            <Expression>[0-9A-Z]{5}
+</Expression>
           </GeneratorOptions>
           <GeneratorType>SqlRegularExpressionGenerator</GeneratorType>
           <GeneratorName>ID (random)</GeneratorName>
@@ -2596,7 +2619,7 @@
       </Columns>
     </Table>
     <Table Name="dbo.Vente">
-      <Checked>false</Checked>
+      <Checked>true</Checked>
       <Settings>
         <Truncate>true</Truncate>
         <RowsToGenerate>0</RowsToGenerate>
@@ -2610,7 +2633,7 @@
       </Settings>
       <Columns>
         <Column Name="id">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>varchar</DataType>
           <GeneratorOptions xsi:type="SqlRegularExpressionGeneratorOptions">
             <AllowEmptyStrings>false</AllowEmptyStrings>
@@ -2621,7 +2644,8 @@
             <SeedValue>29</SeedValue>
             <Unique>true</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
-            <Expression>\d{5}</Expression>
+            <Expression>[0-9A-Z]{5}
+</Expression>
           </GeneratorOptions>
           <GeneratorType>SqlRegularExpressionGenerator</GeneratorType>
           <GeneratorName>ID (random)</GeneratorName>
@@ -2630,12 +2654,12 @@
           <Length>20</Length>
         </Column>
         <Column Name="acheteur">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>varchar</DataType>
           <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
             <Unique>false</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
-            <AllowNulls>true</AllowNulls>
+            <AllowNulls>false</AllowNulls>
             <NullProportion>8</NullProportion>
             <ValueDistributionMode>Seed</ValueDistributionMode>
             <SeedValue>29</SeedValue>
@@ -2652,7 +2676,7 @@
           <Length>20</Length>
         </Column>
         <Column Name="objet">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>varchar</DataType>
           <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
             <Unique>false</Unique>
@@ -2674,10 +2698,10 @@
           <Length>20</Length>
         </Column>
         <Column Name="date">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>datetime</DataType>
           <GeneratorOptions xsi:type="DateTimeGeneratorOptions">
-            <AllowNulls>true</AllowNulls>
+            <AllowNulls>false</AllowNulls>
             <NullProportion>8</NullProportion>
             <Unique>false</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
@@ -2691,8 +2715,8 @@
             <UseOffsetDetails>false</UseOffsetDetails>
             <OffsetFromColumnMinDays>0</OffsetFromColumnMinDays>
             <OffsetFromColumnMaxDays>7</OffsetFromColumnMaxDays>
-            <MinDate>1970-01-01T00:00:00</MinDate>
-            <MaxDate>2018-12-12T00:00:00+01:00</MaxDate>
+            <MinDate>2017-01-01T00:00:00</MinDate>
+            <MaxDate>2025-12-31T00:00:00+01:00</MaxDate>
             <IsRandomizeDate>true</IsRandomizeDate>
             <IsRandomizeTime>true</IsRandomizeTime>
             <MinFraction>0</MinFraction>
@@ -2711,12 +2735,12 @@
           <Precision>23</Precision>
         </Column>
         <Column Name="payementUsed">
-          <Checked>false</Checked>
+          <Checked>true</Checked>
           <DataType>varchar</DataType>
           <GeneratorOptions xsi:type="ForeignKeyGeneratorOptions">
             <Unique>false</Unique>
             <IsAlwaysUnique>false</IsAlwaysUnique>
-            <AllowNulls>true</AllowNulls>
+            <AllowNulls>false</AllowNulls>
             <NullProportion>8</NullProportion>
             <ValueDistributionMode>Seed</ValueDistributionMode>
             <SeedValue>31</SeedValue>
